@@ -1,4 +1,11 @@
+/*
+ * Modules
+ */
 var express = require('express');
+
+/*
+ * App with Express.js
+ */
 var app = express();
 
 app.get('/', function (req, res) {
@@ -9,6 +16,7 @@ app.get('/', function (req, res) {
 	var language = req.headers["accept-language"].split(',')[0];
 	var userAgent = req.headers["user-agent"];
 	
+	//Only match the first sequence in parenthesis
 	var regExp = /\(([^)]+)\)/;
 	var software = regExp.exec(userAgent)[1];
 
